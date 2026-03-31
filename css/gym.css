@@ -400,11 +400,15 @@
 .button-border-icon span { margin-left: 18px; }
 
 .portfolio-overlay {
-	opacity: .8;
+	opacity: .9;
 	background-color: rgba(0,0,0,0.65);
 	-webkit-transition: all .4s ease !important;
 	-o-transition: all .4s ease !important;
 	transition: all .4s ease !important;
+}
+
+.portfolio-image{
+	filter: grayscale(100%);
 }
 
 .portfolio-item:hover .portfolio-overlay,
