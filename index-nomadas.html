@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ford Kronos 291 TL | Alquiler de Autocaravana</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --primary: #2f5d50;
+      --secondary: #f3efe6;
+      --accent: #d89b45;
+      --dark: #1d1d1d;
+      --light: #ffffff;
+      --gray: #666;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #fafafa;
+      color: var(--dark);
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      width: 100%;
+      top: 0;
+      left: 0;
+      z-index: 999;
+      background: rgba(0,0,0,0.5);
+      backdrop-filter: blur(8px);
+      transition: 0.3s;
+    }
+
+    nav.scrolled {
+      background: var(--primary);
+    }
+
+    .nav-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 0;
+      color: white;
+    }
+
+    .logo {
+      font-size: 1.3rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 25px;
+    }
+
+    .nav-links a {
+      font-size: 0.95rem;
+      transition: 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent);
+    }
+
+    /* HERO */
+    .hero {
+      height: 100vh;
+      background:
+        linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)),
+        url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=1400&auto=format&fit=crop') center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      color: white;
+      text-align: center;
+      padding: 0 20px;
+    }
+
+    .hero-content {
+      max-width: 850px;
+      margin: auto;
+    }
+
+    .hero h1 {
+      font-size: 3.8rem;
+      line-height: 1.1;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      margin-bottom: 35px;
+      color: rgba(255,255,255,0.9);
+    }
+
+    .btn {
+      display: inline-block;
+      background: var(--accent);
+      color: white;
+      padding: 14px 28px;
+      border-radius: 50px;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      background: #c4832f;
+    }
+
+    /* SECTION */
+    section {
+      padding: 90px 0;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 55px;
+    }
+
+    .section-title h2 {
+      font-size: 2.4rem;
+      margin-bottom: 10px;
+      color: var(--primary);
+    }
+
+    .section-title p {
+      color: var(--gray);
+    }
+
+    /* FEATURES */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 25px;
+    }
+
+    .card {
+      background: white;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+      transition: 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+    }
+
+    .card h3 {
+      margin-bottom: 15px;
+      color: var(--primary);
+    }
+
+    .card ul {
+      list-style: none;
+    }
+
+    .card li {
+      margin-bottom: 10px;
+      color: var(--gray);
+    }
+
+    /* GALLERY */
+    .gallery {
+      background: var(--secondary);
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    .gallery-item {
+      height: 240px;
+      border-radius: 18px;
+      overflow: hidden;
+      position: relative;
+      background: #ddd;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .gallery-placeholder {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background:
+        linear-gradient(135deg, #d8d8d8, #f0f0f0);
+      color: #777;
+      font-weight: 500;
+      font-size: 1rem;
+    }
+
+    /* EXTRAS */
+    .extras-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 20px;
+    }
+
+    .extra-box {
+      background: white;
+      padding: 24px;
+      border-left: 5px solid var(--accent);
+      border-radius: 12px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.05);
+    }
+
+    .extra-box h4 {
+      margin-bottom: 10px;
+      color: var(--primary);
+    }
+
+    /* CONDITIONS */
+    .conditions {
+      background: #f8f8f8;
+    }
+
+    .accordion {
+      max-width: 900px;
+      margin: auto;
+    }
+
+    .accordion-item {
+      background: white;
+      margin-bottom: 15px;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    }
+
+    .accordion-header {
+      padding: 20px;
+      cursor: pointer;
+      font-weight: 600;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .accordion-content {
+      padding: 0 20px;
+      max-height: 0;
+      overflow: hidden;
+      transition: 0.4s ease;
+    }
+
+    .accordion-content ul {
+      padding: 0 0 20px 18px;
+    }
+
+    .accordion-item.active .accordion-content {
+      max-height: 500px;
+    }
+
+    /* CTA */
+    .cta {
+      background:
+        linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)),
+        url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1400&auto=format&fit=crop') center/cover no-repeat;
+      color: white;
+      text-align: center;
+    }
+
+    .cta h2 {
+      font-size: 2.8rem;
+      margin-bottom: 20px;
+    }
+
+    .cta p {
+      max-width: 700px;
+      margin: auto;
+      margin-bottom: 30px;
+      color: rgba(255,255,255,0.9);
+    }
+
+    /* FOOTER */
+    footer {
+      background: #111;
+      color: rgba(255,255,255,0.7);
+      text-align: center;
+      padding: 30px 20px;
+      font-size: 0.95rem;
+    }
+
+    /* MOBILE */
+    @media (max-width: 768px) {
+
+      .hero h1 {
+        font-size: 2.6rem;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .section-title h2 {
+        font-size: 2rem;
+      }
+
+      .cta h2 {
+        font-size: 2.1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav id="navbar">
+    <div class="container nav-content">
+      <div class="logo">🚐 Ford Kronos 291 TL</div>
+
+      <div class="nav-links">
+        <a href="#features">Características</a>
+        <a href="#gallery">Galería</a>
+        <a href="#extras">Extras</a>
+        <a href="#conditions">Condiciones</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="hero-content">
+      <h1>Espacio, confort y libertad sobre ruedas</h1>
+
+      <p>
+        Descubre la experiencia de viajar sin prisas con nuestra Ford Kronos 291 TL.
+        Perfecta para familias, parejas o amigos que quieren convertir la carretera
+        en su próximo hogar.
+      </p>
+
+      <a href="#gallery" class="btn">
+        Ver autocaravana
+      </a>
+    </div>
+  </header>
+
+  <!-- FEATURES -->
+  <section id="features">
+    <div class="container">
+
+      <div class="section-title">
+        <h2>Tu casa viajera 🚐</h2>
+        <p>Todo lo necesario para recorrer kilómetros con comodidad.</p>
+      </div>
+
+      <div class="features-grid">
+
+        <div class="card">
+          <h3>🛏️ Distribución y plazas</h3>
+
+          <ul>
+            <li>✔️ Cama trasera fija doble</li>
+            <li>✔️ Cama basculante eléctrica</li>
+            <li>✔️ Cama convertible en salón</li>
+            <li>✔️ Capacidad para hasta 6 personas</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>🚿 Cocina y baño</h3>
+
+          <ul>
+            <li>✔️ Ducha separada</li>
+            <li>✔️ WC y lavabo completos</li>
+            <li>✔️ Cocina de 3 fuegos</li>
+            <li>✔️ Frigorífico grande con congelador</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>🔧 Conducción y confort</h3>
+
+          <ul>
+            <li>✔️ Control de crucero</li>
+            <li>✔️ Aire acondicionado</li>
+            <li>✔️ Calefacción Truma Combi</li>
+            <li>✔️ Agua caliente integrada</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>🔌 Equipamiento incluido</h3>
+
+          <ul>
+            <li>✔️ Panel solar</li>
+            <li>✔️ TV con antena</li>
+            <li>✔️ Toldo exterior</li>
+            <li>✔️ Gran garaje trasero</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section class="gallery" id="gallery">
+
+    <div class="container">
+
+      <div class="section-title">
+        <h2>Galería de viaje 📸</h2>
+        <p>
+          Así es la autocaravana.
+        </p>
+      </div>
+
+      <div class="gallery-grid">
+
+        <div class="gallery-item">
+          <div class="gallery-placeholder">
+            FOTO EXTERIOR
+          </div>
+        </div>
+
+        <div class="gallery-item">
+          <div class="gallery-placeholder">
+            FOTO SALÓN
+          </div>
+        </div>
+
+        <div class="gallery-item">
+          <div class="gallery-placeholder">
+            FOTO COCINA
+          </div>
+        </div>
+
+        <div class="gallery-item">
+          <div class="gallery-placeholder">
+            FOTO HABITACIÓN
+          </div>
+        </div>
+
+        <div class="gallery-item">
+          <div class="gallery-placeholder">
+            FOTO BAÑO
+          </div>
+        </div>
+
+        <div class="gallery-item">
+          <div class="gallery-placeholder">
+            FOTO TOLDO / EXTERIOR
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- EXTRAS -->
+  <section id="extras">
+
+    <div class="container">
+
+      <div class="section-title">
+        <h2>Extras opcionales ✨</h2>
+        <p>
+          Personaliza tu aventura con equipamiento adicional.
+        </p>
+      </div>
+
+      <div class="extras-list">
+
+        <div class="extra-box">
+          <h4>🏕️ Camping exterior</h4>
+          <p>Set de mesa y sillas → 35 €</p>
+          <p>Silla adicional → 10 €</p>
+        </div>
+
+        <div class="extra-box">
+          <h4>🍳 Cocina</h4>
+          <p>Menaje de cocina extra → 15 €</p>
+        </div>
+
+        <div class="extra-box">
+          <h4>🛏️ Ropa de cama</h4>
+          <p>Pack completo por cama → 20 €</p>
+        </div>
+
+        <div class="extra-box">
+          <h4>🚿 Toallas</h4>
+          <p>Set de toallas → 10 €</p>
+        </div>
+
+        <div class="extra-box">
+          <h4>❄️ Invierno</h4>
+          <p>Cadenas para nieve → 25 €</p>
+        </div>
+
+        <div class="extra-box">
+          <h4>🐾 Mascotas</h4>
+          <p>Mascotas permitidas hasta 30 kg</p>
+          <p>Suplemento limpieza → 50 €</p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CONDITIONS -->
+  <section class="conditions" id="conditions">
+
+    <div class="container">
+
+      <div class="section-title">
+        <h2>Condiciones de alquiler 📋</h2>
+        <p>
+          Información importante antes de comenzar la aventura.
+        </p>
+      </div>
+
+      <div class="accordion">
+
+        <div class="accordion-item">
+          <div class="accordion-header">
+            👤 Conductor y requisitos
+            <span>+</span>
+          </div>
+
+          <div class="accordion-content">
+            <ul>
+              <li>Edad mínima: 25 años</li>
+              <li>Carnet B con mínimo 2 años</li>
+              <li>Conductores autorizados únicamente</li>
+              <li>DNI o pasaporte obligatorio</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <div class="accordion-header">
+            💳 Fianza y reservas
+            <span>+</span>
+          </div>
+
+          <div class="accordion-content">
+            <ul>
+              <li>Fianza de 900 €</li>
+              <li>Reserva mediante anticipo</li>
+              <li>Confirmación tras recepción del pago</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <div class="accordion-header">
+            🚐 Entrega y devolución
+            <span>+</span>
+          </div>
+
+          <div class="accordion-content">
+            <ul>
+              <li>Recogida desde las 14:00 h</li>
+              <li>Devolución hasta las 12:00 h</li>
+              <li>Ubicación: Carbajosa de la Sagrada (Salamanca)</li>
+              <li>Retrasos: 30 € por fracción de hora</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <div class="accordion-header">
+            ⚠️ Seguro y uso responsable
+            <span>+</span>
+          </div>
+
+          <div class="accordion-content">
+            <ul>
+              <li>Seguro con franquicia de 900 €</li>
+              <li>Uso conforme a normativa vigente</li>
+              <li>Daños por negligencia a cargo del cliente</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta">
+
+    <div class="container">
+
+      <h2>Tu aventura empieza aquí 🌄</h2>
+
+      <p>
+        Escapadas improvisadas, rutas infinitas, amaneceres junto al mar
+        y carreteras que terminan en recuerdos.
+        La Ford Kronos 291 TL está lista para salir.
+      </p>
+
+      <a href="#" class="btn">
+        Solicitar información
+      </a>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>
+      Ford Kronos 291 TL · Alquiler de autocaravana en Salamanca 🚐
+    </p>
+  </footer>
+
+  <!-- JS -->
+  <script>
+    // Navbar scroll
+    const navbar = document.getElementById("navbar");
+
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 50) {
+        navbar.classList.add("scrolled");
+      } else {
+        navbar.classList.remove("scrolled");
+      }
+    });
+
+    // Accordion
+    const accordionItems = document.querySelectorAll(".accordion-item");
+
+    accordionItems.forEach(item => {
+      const header = item.querySelector(".accordion-header");
+
+      header.addEventListener("click", () => {
+        item.classList.toggle("active");
+      });
+    });
+  </script>
+
+</body>
+</html>
